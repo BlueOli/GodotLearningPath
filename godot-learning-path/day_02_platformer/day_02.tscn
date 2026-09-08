@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cu2m8acoimpud"]
+
+[ext_resource type="PackedScene" uid="uid://v2347537vcum" path="res://day_02_platformer/player.tscn" id="1_p84wd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1p4y"]
+size = Vector2(128, 127)
+
+[node name="Day02" type="Node2D" unique_id=1796580416]
+
+[node name="Player" parent="." unique_id=143168775 instance=ExtResource("1_p84wd")]
+position = Vector2(448, 440)
+up_direction = Vector2(0, -1)
+
+[node name="Platform" type="StaticBody2D" parent="." unique_id=1766541201]
+position = Vector2(576, 615.54)
+scale = Vector2(8.992998, 0.45999756)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=1058620521]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_y1p4y")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platform" unique_id=2074414245]
+position = Vector2(0, 1)
+scale = Vector2(1, 0.99999994)
+color = Color(0.12977117, 0.26028585, 0.16989079, 1)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+uv = PackedVector2Array(-80, -40, 8, -40, 8, -8, -80, -8)
+
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=737131545]
+position = Vector2(184, 487.99997)
+rotation = 1.5707964
+scale = Vector2(1.6663566, 0.60975313)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=968971051]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_y1p4y")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platform2" unique_id=88903312]
+position = Vector2(0, 1)
+scale = Vector2(1, 0.99999994)
+color = Color(0.12977117, 0.26028585, 0.16989079, 1)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+uv = PackedVector2Array(-80, -40, 8, -40, 8, -8, -80, -8)
+
+[node name="Platform3" type="StaticBody2D" parent="." unique_id=204171475]
+position = Vector2(696, 464.00006)
+rotation = -0.715585
+scale = Vector2(0.75016946, 0.19959404)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=200983414]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_y1p4y")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platform3" unique_id=618400452]
+position = Vector2(0, 1)
+scale = Vector2(1, 0.99999994)
+color = Color(0.12977117, 0.26028585, 0.16989079, 1)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+uv = PackedVector2Array(-80, -40, 8, -40, 8, -8, -80, -8)
+
+[node name="Platform4" type="StaticBody2D" parent="." unique_id=1250028714]
+position = Vector2(1016, 383.99994)
+scale = Vector2(1.6663566, 0.60975313)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4" unique_id=1700072838]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_y1p4y")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platform4" unique_id=457226440]
+position = Vector2(0, 1)
+scale = Vector2(1, 0.99999994)
+color = Color(0.12977117, 0.26028585, 0.16989079, 1)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+uv = PackedVector2Array(-80, -40, 8, -40, 8, -8, -80, -8)

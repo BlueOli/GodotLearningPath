@@ -1,0 +1,210 @@
+[gd_scene format=3 uid="uid://y7oa5hugsn0q"]
+
+[ext_resource type="Script" uid="uid://ud6txug3750x" path="res://day_03_camera/camera_2d.gd" id="1_2r0w4"]
+[ext_resource type="Script" uid="uid://beuv6ykq5p7wl" path="res://day_04_signals_and_collectibles/score_ui.gd" id="1_kfh72"]
+[ext_resource type="Script" uid="uid://de1p48f6xbjxe" path="res://day_04_signals_and_collectibles/score_manager.gd" id="1_m2c2r"]
+[ext_resource type="PackedScene" uid="uid://dcdax74u21vr5" path="res://day_04_signals_and_collectibles/player.tscn" id="2_v42vc"]
+[ext_resource type="PackedScene" uid="uid://br6s2y6xqpsnx" path="res://day_04_signals_and_collectibles/collectible.tscn" id="3_v42vc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m2c2r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ac7fs"]
+size = Vector2(128, 127)
+
+[node name="Day04" type="Node2D" unique_id=1945281326]
+
+[node name="CameraPos" type="Label" parent="." unique_id=2026823282]
+visible = false
+offset_left = 189.0
+offset_top = -616.0
+offset_right = 416.0
+offset_bottom = -593.0
+text = "()"
+label_settings = SubResource("LabelSettings_m2c2r")
+
+[node name="ScoreUI" type="Label" parent="." unique_id=858917539]
+offset_left = 189.0
+offset_top = -616.0
+offset_right = 416.0
+offset_bottom = -593.0
+text = "Score: 000"
+label_settings = SubResource("LabelSettings_m2c2r")
+script = ExtResource("1_kfh72")
+
+[node name="ScoreManager" type="Node" parent="." unique_id=650260876]
+script = ExtResource("1_m2c2r")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1123603971 node_paths=PackedStringArray("pos_label")]
+position = Vector2(448, -207.99988)
+offset = Vector2(300, -100)
+limit_left = -150
+limit_bottom = 200
+position_smoothing_enabled = true
+script = ExtResource("1_2r0w4")
+pos_label = NodePath("../CameraPos")
+
+[node name="Player" parent="." unique_id=143168775 instance=ExtResource("2_v42vc")]
+position = Vector2(352, -198)
+up_direction = Vector2(0, -1)
+
+[node name="Collectibles" type="Node2D" parent="." unique_id=740439121]
+
+[node name="SilverCoin" parent="Collectibles" unique_id=1214388834 instance=ExtResource("3_v42vc")]
+position = Vector2(733, -210)
+value = 5
+color = Color(0.4969535, 0.7158128, 0.69695145, 1)
+scale_mult = 1.0
+
+[node name="BronzeCoin" parent="Collectibles" unique_id=187913018 instance=ExtResource("3_v42vc")]
+position = Vector2(551, -124)
+value = 1
+color = Color(0.72156864, 0.38039216, 0, 1)
+scale_mult = 1.5
+
+[node name="GoldCoin" parent="Collectibles" unique_id=1973558415 instance=ExtResource("3_v42vc")]
+position = Vector2(1049, -354)
+value = 10
+scale_mult = 0.5
+
+[node name="Platforms" type="Node2D" parent="." unique_id=1012558202]
+
+[node name="Platform" type="StaticBody2D" parent="Platforms" unique_id=410555900]
+position = Vector2(576, -32.45984)
+scale = Vector2(8.992998, 0.45999756)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform" unique_id=1517777004]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ac7fs")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform" unique_id=599083538]
+position = Vector2(0, 1)
+scale = Vector2(1, 0.99999994)
+color = Color(0.12977117, 0.26028585, 0.16989079, 1)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+uv = PackedVector2Array(-80, -40, 8, -40, 8, -8, -80, -8)
+
+[node name="Platform2" type="StaticBody2D" parent="Platforms" unique_id=525419925]
+position = Vector2(184, -159.99991)
+rotation = 1.5707964
+scale = Vector2(1.6663566, 0.60975313)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform2" unique_id=73857336]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ac7fs")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform2" unique_id=1649223544]
+position = Vector2(0, 1)
+scale = Vector2(1, 0.99999994)
+color = Color(0.12977117, 0.26028585, 0.16989079, 1)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+uv = PackedVector2Array(-80, -40, 8, -40, 8, -8, -80, -8)
+
+[node name="Platform3" type="StaticBody2D" parent="Platforms" unique_id=1863187311]
+position = Vector2(720, -136.00003)
+scale = Vector2(0.75016946, 0.19959404)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform3" unique_id=1658890460]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ac7fs")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform3" unique_id=278141137]
+position = Vector2(0, 1)
+scale = Vector2(1, 0.99999994)
+color = Color(0.12977117, 0.26028585, 0.16989079, 1)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+uv = PackedVector2Array(-80, -40, 8, -40, 8, -8, -80, -8)
+
+[node name="Platform4" type="StaticBody2D" parent="Platforms" unique_id=957246147]
+position = Vector2(1056, -264)
+scale = Vector2(1.6663566, 0.60975313)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform4" unique_id=1932978559]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ac7fs")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform4" unique_id=1941111311]
+position = Vector2(0, 1)
+scale = Vector2(1, 0.99999994)
+color = Color(0.12977117, 0.26028585, 0.16989079, 1)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+uv = PackedVector2Array(-80, -40, 8, -40, 8, -8, -80, -8)
+
+[node name="Platform5" type="StaticBody2D" parent="Platforms" unique_id=1419790922]
+position = Vector2(1728.0001, -127.99999)
+scale = Vector2(4.4663563, 0.4097541)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform5" unique_id=1405110746]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ac7fs")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform5" unique_id=865125828]
+position = Vector2(0, 1)
+scale = Vector2(1, 0.99999994)
+color = Color(0.12977117, 0.26028585, 0.16989079, 1)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+uv = PackedVector2Array(-80, -40, 8, -40, 8, -8, -80, -8)
+
+[node name="Platform6" type="StaticBody2D" parent="Platforms" unique_id=1618318147]
+position = Vector2(2304, -7.999939)
+scale = Vector2(1.6663566, 0.60975313)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform6" unique_id=1128934466]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ac7fs")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform6" unique_id=946404799]
+position = Vector2(0, 1)
+scale = Vector2(1, 0.99999994)
+color = Color(0.12977117, 0.26028585, 0.16989079, 1)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+uv = PackedVector2Array(-80, -40, 8, -40, 8, -8, -80, -8)
+
+[node name="Platform7" type="StaticBody2D" parent="Platforms" unique_id=1348966343]
+position = Vector2(2616, -112.000015)
+scale = Vector2(1.6663566, 0.60975313)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform7" unique_id=235119270]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ac7fs")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform7" unique_id=1677246335]
+position = Vector2(0, 1)
+scale = Vector2(1, 0.99999994)
+color = Color(0.12977117, 0.26028585, 0.16989079, 1)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+uv = PackedVector2Array(-80, -40, 8, -40, 8, -8, -80, -8)
+
+[node name="Platform8" type="StaticBody2D" parent="Platforms" unique_id=378806419]
+position = Vector2(2952, -215.99997)
+scale = Vector2(1.6663566, 0.60975313)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform8" unique_id=2112771855]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ac7fs")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform8" unique_id=980919527]
+position = Vector2(0, 1)
+scale = Vector2(1, 0.99999994)
+color = Color(0.12977117, 0.26028585, 0.16989079, 1)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+uv = PackedVector2Array(-80, -40, 8, -40, 8, -8, -80, -8)
+
+[node name="Platform9" type="StaticBody2D" parent="Platforms" unique_id=695113583]
+position = Vector2(3768, -32.000004)
+scale = Vector2(8.992998, 0.45999756)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform9" unique_id=1700279986]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ac7fs")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Platform9" unique_id=948570492]
+position = Vector2(0, 1)
+scale = Vector2(1, 0.99999994)
+color = Color(0.12977117, 0.26028585, 0.16989079, 1)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+uv = PackedVector2Array(-80, -40, 8, -40, 8, -8, -80, -8)
+
+[connection signal="score_updated" from="ScoreManager" to="ScoreUI" method="_on_score_manager_score_updated"]
+[connection signal="picked_up" from="Collectibles/SilverCoin" to="ScoreManager" method="_on_collectible_picked_up"]
+[connection signal="picked_up" from="Collectibles/BronzeCoin" to="ScoreManager" method="_on_collectible_picked_up"]
+[connection signal="picked_up" from="Collectibles/GoldCoin" to="ScoreManager" method="_on_collectible_picked_up"]

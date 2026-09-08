@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dcdax74u21vr5"]
+
+[ext_resource type="Script" uid="uid://dai4vp78dffpc" path="res://day_04_signals_and_collectibles/player_movement.gd" id="1_xjhvj"]
+
+[node name="Player" type="CharacterBody2D" unique_id=143168775]
+up_direction = Vector2(1, 0)
+script = ExtResource("1_xjhvj")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1607733119]
+position = Vector2(22.399994, -22.399994)
+polygon = PackedVector2Array(-54.399994, 22.399994, 9.600006, 22.399994, 41.600006, -57.600006, 1.6000061, -49.600006, -22.399994, -89.600006, -46.399994, -49.600006, -86.399994, -57.600006)
+uv = PackedVector2Array(-48, 24, 8, 24, 32, -24, 0, -72, -24, -24, -48, -72, -80, -24)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=881332060]
+position = Vector2(-96, 8)
+polygon = PackedVector2Array(128, -8, 160, -88, 120, -80, 96, -120, 72, -80, 32, -88, 64, -8, 96, -8)

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://br6s2y6xqpsnx"]
+
+[ext_resource type="Script" uid="uid://rw8becuxlfth" path="res://day_04_signals_and_collectibles/collectible.gd" id="1_cbu7v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y1p4y"]
+
+[node name="Collectible" type="Area2D" unique_id=1214388834 node_paths=PackedStringArray("Shape")]
+script = ExtResource("1_cbu7v")
+color = Color(1, 1, 0, 1)
+Shape = NodePath("Polygon2D")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=790245445]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(0, -10, 4, -9, 7, -7, 9, -4, 10, 0, 9, 4, 7, 7, 4, 9, 0, 10, -4, 9, -7, 7, -9, 4, -10, 0, -9, -4, -7, -7, -4, -9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=879926425]
+shape = SubResource("CircleShape2D_y1p4y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

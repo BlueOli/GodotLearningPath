@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bjsf3q6hvbyji"]
+
+[ext_resource type="Script" uid="uid://cddw5gd01clu8" path="res://day_01_movement/player_movement.gd" id="1_mll78"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1748288826]
+script = ExtResource("1_mll78")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1263390697]
+polygon = PackedVector2Array(0, -72, 80, 0, 0, 144, -80, 0)
+uv = PackedVector2Array(4.999634, -75.000046, 86.99963, -25.000046, 7.999634, 52.999954, -61.000366, -4.000046)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=264650075]
+polygon = PackedVector2Array(0, -72, 80, 0, 0, 144, -80, 0)
