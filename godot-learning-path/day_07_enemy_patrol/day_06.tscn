@@ -1,26 +1,18 @@
-[gd_scene format=3 uid="uid://dagw7dsav3hi5"]
+[gd_scene format=3 uid="uid://b7keghhw16kry"]
 
-[ext_resource type="PackedScene" uid="uid://cdqrq5kv1bxln" path="res://day_06_moving_platforms/door.tscn" id="1_jbg3l"]
-[ext_resource type="PackedScene" uid="uid://cc1prm0xsjn7" path="res://day_06_moving_platforms/player.tscn" id="2_aak77"]
-[ext_resource type="Script" uid="uid://w0xoia0wloe6" path="res://day_06_moving_platforms/player_movement.gd" id="3_isyb4"]
-[ext_resource type="Script" uid="uid://dgfivi5oecpd8" path="res://day_06_moving_platforms/camera_2d.gd" id="4_rukhq"]
-[ext_resource type="PackedScene" uid="uid://rvqasqanf30y" path="res://day_06_moving_platforms/pressure_plate.tscn" id="5_h7rlu"]
-[ext_resource type="PackedScene" uid="uid://odi553igp1ii" path="res://day_06_moving_platforms/moving_platform.tscn" id="6_aak77"]
+[ext_resource type="PackedScene" uid="uid://cppheuisuhkg5" path="res://day_07_enemy_patrol/player.tscn" id="2_btk1k"]
+[ext_resource type="Script" uid="uid://bko07dtgf1j7a" path="res://day_07_enemy_patrol/player_movement.gd" id="3_uyonc"]
+[ext_resource type="Script" uid="uid://djvabd1jv7oae" path="res://day_07_enemy_patrol/camera_2d.gd" id="4_c0a44"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ac7fs"]
 size = Vector2(128, 127)
 
-[node name="Day06" type="Node2D" unique_id=1945281326]
+[node name="Day07" type="Node2D" unique_id=1945281326]
 
-[node name="Door" parent="." unique_id=2046498430 instance=ExtResource("1_jbg3l")]
-position = Vector2(604, -62)
-scale = Vector2(1, 1.5600004)
-is_one_time_open = true
-
-[node name="Player" parent="." unique_id=143168775 instance=ExtResource("2_aak77")]
-position = Vector2(448, -207.99988)
+[node name="Player" parent="." unique_id=143168775 instance=ExtResource("2_btk1k")]
+position = Vector2(336, -119)
 up_direction = Vector2(0, -1)
-script = ExtResource("3_isyb4")
+script = ExtResource("3_uyonc")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1123603971 node_paths=PackedStringArray("pos_label")]
 position = Vector2(448, -207.99988)
@@ -28,7 +20,7 @@ offset = Vector2(300, -100)
 limit_left = -150
 limit_bottom = 200
 position_smoothing_enabled = true
-script = ExtResource("4_rukhq")
+script = ExtResource("4_c0a44")
 pos_label = NodePath("Label")
 
 [node name="Label" type="Label" parent="Camera2D" unique_id=2026823282]
@@ -70,7 +62,7 @@ polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 uv = PackedVector2Array(-80, -40, 8, -40, 8, -8, -80, -8)
 
 [node name="Platform3" type="StaticBody2D" parent="Platforms" unique_id=1863187311]
-position = Vector2(720, -136.00003)
+position = Vector2(685, -239)
 scale = Vector2(0.75016946, 0.19959404)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform3" unique_id=1658890460]
@@ -173,17 +165,3 @@ scale = Vector2(1, 0.99999994)
 color = Color(0.12977117, 0.26028585, 0.16989079, 1)
 polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 uv = PackedVector2Array(-80, -40, 8, -40, 8, -8, -80, -8)
-
-[node name="PressurePlate" parent="." unique_id=1469069370 instance=ExtResource("5_h7rlu")]
-position = Vector2(271, -62)
-
-[node name="MovingPlatform" parent="." unique_id=636723416 instance=ExtResource("6_aak77")]
-position = Vector2(449, -370)
-
-[node name="MovingPlatform2" parent="." unique_id=252970461 instance=ExtResource("6_aak77")]
-position = Vector2(738, -481)
-start_offset = Vector2(-150, -100)
-end_offset = Vector2(50, 25)
-speed = 800.0
-
-[connection signal="state_changed" from="PressurePlate" to="Door" method="_on_pressure_plate_state_changed"]

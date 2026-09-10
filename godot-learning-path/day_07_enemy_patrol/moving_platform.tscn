@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bkjsmhgdibe8s"]
+
+[ext_resource type="Script" uid="uid://du83ebdmh0sis" path="res://day_07_enemy_patrol/moving_platform.gd" id="1_ug3v6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1p4y"]
+size = Vector2(192, 32)
+
+[node name="MovingPlatform" type="StaticBody2D" unique_id=636723416 node_paths=PackedStringArray("wait_timer")]
+script = ExtResource("1_ug3v6")
+start_offset = Vector2(-100, 0)
+end_offset = Vector2(100, 0)
+speed = 500.0
+wait_timer = NodePath("Timer")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=673416486]
+color = Color(0.36390737, 0.00084228814, 0.9819084, 1)
+polygon = PackedVector2Array(-96, -16, -96, 16, 96, 16, 96, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=725160516]
+shape = SubResource("RectangleShape2D_y1p4y")
+
+[node name="Timer" type="Timer" parent="." unique_id=667555725]
+one_shot = true

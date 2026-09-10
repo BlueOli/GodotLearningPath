@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bgmlncnvqvk0i"]
+
+[ext_resource type="Script" uid="uid://dlgx2vevcw6jr" path="res://day_07_enemy_patrol/door.gd" id="1_ufusc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fla3u"]
+size = Vector2(64, 144)
+
+[node name="Door" type="StaticBody2D" unique_id=2046498430 node_paths=PackedStringArray("collision", "open_visual", "closed_visual")]
+script = ExtResource("1_ufusc")
+collision = NodePath("CollisionShape2D")
+open_visual = NodePath("OpenDoor")
+closed_visual = NodePath("ClosedDoor")
+
+[node name="ClosedDoor" type="Polygon2D" parent="." unique_id=1015329446]
+scale = Vector2(0.24000204, 1)
+color = Color(0.2017577, 0.4541458, 0.6649449, 1)
+polygon = PackedVector2Array(-32, -144, -32, 0, 32, 0, 32, -144)
+
+[node name="OpenDoor" type="Polygon2D" parent="." unique_id=1883071123]
+visible = false
+position = Vector2(-23, 0)
+scale = Vector2(0.96000266, 1)
+color = Color(0.15606838, 0.37912384, 0.56310517, 1)
+polygon = PackedVector2Array(-32, -144, -32, 0, 32, 0, 32, -144)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=829866335]
+position = Vector2(0, -72)
+scale = Vector2(0.24000204, 1)
+shape = SubResource("RectangleShape2D_fla3u")
+debug_color = Color(0.5608813, 0.4040654, 0.9797476, 0.16078432)

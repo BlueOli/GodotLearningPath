@@ -176,4 +176,4 @@ uv = PackedVector2Array(-80, -40, 8, -40, 8, -8, -80, -8)
 [node name="PressurePlate" parent="." unique_id=1469069370 instance=ExtResource("6_s6huq")]
 position = Vector2(271, -62)
 
-[connection signal="state_changed" from="PressurePlate" to="Door" method="_on_pressure_plate_state_changed"]
+[connection signal="state_changed" from="PressurePlate" to="Door" method="_pressure_plate_changed"]

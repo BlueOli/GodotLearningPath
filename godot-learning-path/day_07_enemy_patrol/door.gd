@@ -24,7 +24,7 @@ func close() -> bool:
 		return true
 	return false
 
-func _pressure_plate_changed(state: bool) -> void:
+func _on_pressure_plate_state_changed(state: bool) -> void:
 	if state:
 		if open():
 			print("Open!")
