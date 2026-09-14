@@ -1,18 +1,22 @@
 [gd_scene format=3 uid="uid://b7keghhw16kry"]
 
-[ext_resource type="PackedScene" uid="uid://cppheuisuhkg5" path="res://day_07_enemy_patrol/player.tscn" id="2_btk1k"]
-[ext_resource type="Script" uid="uid://bko07dtgf1j7a" path="res://day_07_enemy_patrol/player_movement.gd" id="3_uyonc"]
-[ext_resource type="Script" uid="uid://djvabd1jv7oae" path="res://day_07_enemy_patrol/camera_2d.gd" id="4_c0a44"]
+[ext_resource type="PackedScene" uid="uid://cvv2uej66wj4g" path="res://day_07_enemy_patrol/enemy.tscn" id="1_oigde"]
+[ext_resource type="PackedScene" uid="uid://cppheuisuhkg5" path="res://day_07_enemy_patrol/player.tscn" id="2_jo0i2"]
+[ext_resource type="Script" uid="uid://bko07dtgf1j7a" path="res://day_07_enemy_patrol/player_movement.gd" id="3_1a23k"]
+[ext_resource type="Script" uid="uid://djvabd1jv7oae" path="res://day_07_enemy_patrol/camera_2d.gd" id="4_fikmq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ac7fs"]
 size = Vector2(128, 127)
 
 [node name="Day07" type="Node2D" unique_id=1945281326]
 
-[node name="Player" parent="." unique_id=143168775 instance=ExtResource("2_btk1k")]
+[node name="Enemy" parent="." unique_id=319699657 instance=ExtResource("1_oigde")]
+position = Vector2(952, -62)
+
+[node name="Player" parent="." unique_id=143168775 instance=ExtResource("2_jo0i2")]
 position = Vector2(336, -119)
 up_direction = Vector2(0, -1)
-script = ExtResource("3_uyonc")
+script = ExtResource("3_1a23k")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1123603971 node_paths=PackedStringArray("pos_label")]
 position = Vector2(448, -207.99988)
@@ -20,7 +24,7 @@ offset = Vector2(300, -100)
 limit_left = -150
 limit_bottom = 200
 position_smoothing_enabled = true
-script = ExtResource("4_c0a44")
+script = ExtResource("4_fikmq")
 pos_label = NodePath("Label")
 
 [node name="Label" type="Label" parent="Camera2D" unique_id=2026823282]

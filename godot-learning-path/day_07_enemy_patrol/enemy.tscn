@@ -3,33 +3,50 @@
 [ext_resource type="Script" uid="uid://7671kk8vq5wi" path="res://day_07_enemy_patrol/enemy.gd" id="1_hqmwy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1p4y"]
-size = Vector2(136, 55)
+size = Vector2(376, 96)
 
-[node name="Enemy" type="CharacterBody2D" unique_id=319699657]
+[node name="Enemy" type="CharacterBody2D" unique_id=319699657 node_paths=PackedStringArray("point_a", "point_b", "visual", "collision")]
 script = ExtResource("1_hqmwy")
+point_a = NodePath("PointA")
+point_b = NodePath("PointB")
+visual = NodePath("Visual")
+collision = NodePath("CollisionPolygon2D")
+speed = 100.0
 
 [node name="Visual" type="Polygon2D" parent="." unique_id=268612521]
+scale = Vector2(2, 2)
 color = Color(0.44729292, 0.0063148867, 2.4065375e-07, 1)
 polygon = PackedVector2Array(0, 0, -16, 0, -8, -16, -24, -8, -16, -40, -8, -40, 0, -47.999996, 24, -31.999998, 0, -32, 16, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1306294346]
 visible = false
+scale = Vector2(2, 2)
 polygon = PackedVector2Array(-16, 0, -8, -16, -24, -8, -16, -40, -8, -40, 0, -48, 24, -32, 0, -32, 16, 0)
 
 [node name="PointA" type="Marker2D" parent="." unique_id=99806785]
-position = Vector2(-130, 0)
+position = Vector2(100, 0)
 gizmo_extents = 8.4
 
 [node name="PointB" type="Marker2D" parent="." unique_id=1250228856]
-position = Vector2(130, 0)
+position = Vector2(-100, 0)
 gizmo_extents = 8.4
 
 [node name="WaitTimer" type="Timer" parent="." unique_id=390936102]
 one_shot = true
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=1550913641]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1848386408]
-position = Vector2(0, -27.5)
+position = Vector2(0, -48)
 shape = SubResource("RectangleShape2D_y1p4y")
+
+[node name="StopChaseArea" type="Area2D" parent="." unique_id=1681556603]
+position = Vector2(0, 48)
+scale = Vector2(1.5999987, 2.016)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StopChaseArea" unique_id=812044123]
+position = Vector2(0, -48)
+shape = SubResource("RectangleShape2D_y1p4y")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="StopChaseArea" to="." method="_on_stop_chase_area_body_exited"]
